@@ -4,8 +4,8 @@ function imprimirPagina() {
 
 function sumar() {
     var valor1 = Number(document.getElementById('niños').value);
-    var valor2 = Number(document.getElementById('joven').value);
-    var valor3 = Number(document.getElementById('hora').value);
+    var valor2 = Number(document.getElementById('jovenes').value);
+    var valor3 = Number(document.getElementById('adultos').value);
 
     var total = valor1 + valor2 + valor3;
 
@@ -47,11 +47,11 @@ document.querySelector("#submit").addEventListener("click", e => {
     //INGRESE UN NUMERO DE WHATSAPP VALIDO AQUI:
     const telefono = "573104866092";
 
-    const cliente = document.querySelector("#niños").value;
-    const joven = document.querySelector("#joven").value;
+    const niños = document.querySelector("#niños").value;
+    const jovenes = document.querySelector("#jovenes").value;
+    const adultos = document.querySelector("#adultos").value;
     const total = document.querySelector("#total").value;
     const fecha = document.querySelector("#fecha").innerHTML;
-    const hora = document.querySelector("#hora").innerText;
     const empleado = document.querySelector("#empleado").value;
     const servicio = document.querySelector("#servicio").innerText;
     const resp = document.querySelector("#respuesta");
@@ -59,16 +59,14 @@ document.querySelector("#submit").addEventListener("click", e => {
     resp.classList.remove("fail");
     resp.classList.remove("send");
 
-    console.log(hora);
-
     const url = `https://api.whatsapp.com/send?phone=${telefono}&text=
 		*Asistencia*%0A
 		*Niños:*  
-		${cliente}%0A
+		${niños}%0A
     *Jovenes:* 
-		${joven}%0A
+		${jovenes}%0A
 		*Adultos:* 
-		${hora}%0A
+		${adultos}%0A
     *Total:* 
 		${total}%0A
 		*Coodinador:* 
@@ -78,7 +76,7 @@ document.querySelector("#submit").addEventListener("click", e => {
 		*Servicio:* 
 		${servicio}`;
 
-    if (cliente === "" || joven === "") {
+    if (!niños || !jovenes || !adultos) {
         resp.classList.add("fail");
         resp.innerHTML = `Faltan algunos datos`;
         return false;
