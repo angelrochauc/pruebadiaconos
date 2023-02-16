@@ -60,21 +60,7 @@ document.querySelector("#submit").addEventListener("click", e => {
     resp.classList.remove("send");
 
     const url = `https://api.whatsapp.com/send?phone=${telefono}&text=
-		*Asistencia*%0A
-		*Niños:*  
-		${niños}%0A
-    *Jovenes:* 
-		${jovenes}%0A
-		*Adultos:* 
-		${adultos}%0A
-    *Total:* 
-		${total}%0A
-		*Coodinador:* 
-		${empleado}%0A
-    *Fecha:* 
-		${fecha}%0A
-		*Servicio:* 
-		${servicio}`;
+		*Asistencia*%0A *Niños:* ${niños}%0A *Jovenes:* ${jovenes}%0A *Adultos:* ${adultos}%0A *Total:* ${total}%0A *Coodinador:* ${empleado}%0A *Fecha:* ${fecha}%0A *Servicio:* ${servicio}`;
 
     if (!niños || !jovenes || !adultos) {
         resp.classList.add("fail");
